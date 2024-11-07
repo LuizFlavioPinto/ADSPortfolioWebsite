@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github-dark.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <title>ADS2024PORTFOLIO</title>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="location.reload()">
+            <div class="ifpaGridLogo">
+                <div class="circle"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div> 
+            </div>
+        </div>
+        <div class="hamburguer">&#9776</div>
+        <ul class="headerNavUl">
+            <li><a href="#home" >Home</a></li>
+            <li><a href="#aboutUs" >Sobre</a></li>
+            <li><a href="#projects">Projetos</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="home" id="home">
+            <div class="overlay"></div>
+            <div class="h1Container"> 
+                <h1 class="h1big">Oi, Nós somos ADS</h1>
+                <h1 class="h1superBig">IFPA!!!</h1>
+            </div>
+        </div>
+
+        <div class="aboutUs" id="aboutUs">
+            <h1>Sobre nós</h1>
+            <p>Bem-vindo ao portfólio da nossa turma de Análise e Desenvolvimento de Sistemas no Instituto Federal do Pará. Somos calouros do segundo período de 2024, comprometidos em construir uma base sólida nas competências de programação, lógica computacional e desenvolvimento de sistemas. Nosso objetivo é claro: dominar as habilidades e os conhecimentos necessários para atuar no mercado de tecnologia de maneira impactante.</p>
+            <p>Desde o primeiro período, nos dedicamos a projetos que aplicam conceitos de programação em Python e algoritmos, sempre buscando evolução e inovação. Neste site, apresentamos nossos principais trabalhos e os resultados da disciplina ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES, ministrada pela professora <strong>Andrea Marques</strong></p>
+            <p>Nosso portfólio reflete a seriedade e a ambição que nos acompanham em cada etapa dessa jornada. Este é só o começo, e estamos prontos para enfrentar os desafios que virão.</p>
+        </div>
+
+        <div class="projects" id="projects">
+            <h1>Projetos</h1>
+
+            <div class="codesContainer">
+                <!-- Card com a estrutura correta -->
+                <div class="codeCard">
+                    <h2>Calculadora de IMC</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: João Silva</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+def calcular_imc(peso, altura):
+    imc = peso / (altura ** 2)
+    return imc
+
+# Exemplo de uso
+peso = float(input("Digite seu peso (kg): "))
+altura = float(input("Digite sua altura (m): "))
+imc = calcular_imc(peso, altura)
+print(f"Seu IMC é: {imc:.2f}")
+                    </code></pre>
+                </div>
+
+                <!-- Outras divs ajustadas para manter o mesmo layout -->
+                <div class="codeCard">
+                    <h2>Conversor de Temperatura</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Maria Oliveira</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+def celsius_para_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_para_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+# Exemplo de uso
+temp_celsius = float(input("Digite a temperatura em Celsius: "))
+print(f"Temperatura em Fahrenheit: {celsius_para_fahrenheit(temp_celsius):.2f}")
+
+temp_fahrenheit = float(input("Digite a temperatura em Fahrenheit: "))
+print(f"Temperatura em Celsius: {fahrenheit_para_celsius(temp_fahrenheit):.2f}")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Verificador de Número Primo</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Pedro Souza</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+def eh_primo(numero):
+    if numero < 2:
+        return False
+    for i in range(2, int(numero ** 0.5) + 1):
+        if numero % i == 0:
+            return False
+    return True
+
+# Exemplo de uso
+numero = int(input("Digite um número: "))
+if eh_primo(numero):
+    print(f"{numero} é um número primo.")
+else:
+    print(f"{numero} não é um número primo.")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Jogo de Adivinhação</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Carla Mendes</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+import random
+
+def jogo_adivinhacao():
+    numero_secreto = random.randint(1, 100)
+    tentativas = 0
+    
+    while True:
+        palpite = int(input("Adivinhe o número (1 a 100): "))
+        tentativas += 1
+        if palpite < numero_secreto:
+            print("Tente um número maior.")
+        elif palpite > numero_secreto:
+            print("Tente um número menor.")
+        else:
+            print(f"Parabéns! Você acertou em {tentativas} tentativas.")
+            break
+
+jogo_adivinhacao()
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Calculadora de Fatorial</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Lucas Santos</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+def fatorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * fatorial(n - 1)
+
+# Exemplo de uso
+numero = int(input("Digite um número para calcular o fatorial: "))
+print(f"O fatorial de {numero} é {fatorial(numero)}")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Contador de Palavras</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Ana Clara</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+def contar_palavras(frase):
+    palavras = frase.split()
+    return len(palavras)
+        
+# Exemplo de uso
+frase = input("Digite uma frase: ")
+print(f"Número de palavras: {contar_palavras(frase)}")
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Website desenvolvido por: 
+            <strong> Luiz Flávio De Oliveira Pinto 
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luizflavio1452@gmail.com" 
+                target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href= "https://github.com/LuizFlavioPinto" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </strong>
+        </p>
+        <p>Professora: <strong> Andrea Marques</strong></p>
+        <p>Alunos: Flávio Pinto, João Silva, Maria Oliveira, Pedro Souza, Carla Mendes, Lucas Santos, Ana Clara</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
