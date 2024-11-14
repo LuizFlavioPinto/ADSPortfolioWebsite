@@ -33,6 +33,7 @@
             <li><a href="#home" >Home</a></li>
             <li><a href="#aboutUs" >Sobre</a></li>
             <li><a href="#projects">Projetos</a></li>
+            <li><a href="#credits">Creditos</a></li>
         </ul>
     </header>
 
@@ -58,96 +59,9 @@
             <div class="codesContainer">
                 <!-- Card com a estrutura correta -->
                 <div class="codeCard">
-                    <h2>Calculadora de IMC</h2>
+                    <h2>Gerador De Senha Forte</h2>
                     <div class="codeDetails">
-                        <p>Aluno: João Silva</p>
-                        <div class="interactiveButtons">
-                            <button class="download-button" onclick="downloadFile(this)">
-                                <i class="fas fa-file-download"></i> 
-                            </button>
-                            <button class="copyButton" onclick="copyText(this)">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <pre><code>
-def calcular_imc(peso, altura):
-    imc = peso / (altura ** 2)
-    return imc
-
-# Exemplo de uso
-peso = float(input("Digite seu peso (kg): "))
-altura = float(input("Digite sua altura (m): "))
-imc = calcular_imc(peso, altura)
-print(f"Seu IMC é: {imc:.2f}")
-                    </code></pre>
-                </div>
-
-                <!-- Outras divs ajustadas para manter o mesmo layout -->
-                <div class="codeCard">
-                    <h2>Conversor de Temperatura</h2>
-                    <div class="codeDetails">
-                        <p>Aluno: Maria Oliveira</p>
-                        <div class="interactiveButtons">
-                            <button class="download-button" onclick="downloadFile(this)">
-                                <i class="fas fa-file-download"></i> 
-                            </button>
-                            <button class="copyButton" onclick="copyText(this)">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <pre><code>
-def celsius_para_fahrenheit(celsius):
-    return (celsius * 9/5) + 32
-
-def fahrenheit_para_celsius(fahrenheit):
-    return (fahrenheit - 32) * 5/9
-
-# Exemplo de uso
-temp_celsius = float(input("Digite a temperatura em Celsius: "))
-print(f"Temperatura em Fahrenheit: {celsius_para_fahrenheit(temp_celsius):.2f}")
-
-temp_fahrenheit = float(input("Digite a temperatura em Fahrenheit: "))
-print(f"Temperatura em Celsius: {fahrenheit_para_celsius(temp_fahrenheit):.2f}")
-                    </code></pre>
-                </div>
-
-                <div class="codeCard">
-                    <h2>Verificador de Número Primo</h2>
-                    <div class="codeDetails">
-                        <p>Aluno: Pedro Souza</p>
-                        <div class="interactiveButtons">
-                            <button class="download-button" onclick="downloadFile(this)">
-                                <i class="fas fa-file-download"></i> 
-                            </button>
-                            <button class="copyButton" onclick="copyText(this)">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <pre><code>
-def eh_primo(numero):
-    if numero < 2:
-        return False
-    for i in range(2, int(numero ** 0.5) + 1):
-        if numero % i == 0:
-            return False
-    return True
-
-# Exemplo de uso
-numero = int(input("Digite um número: "))
-if eh_primo(numero):
-    print(f"{numero} é um número primo.")
-else:
-    print(f"{numero} não é um número primo.")
-                    </code></pre>
-                </div>
-
-                <div class="codeCard">
-                    <h2>Jogo de Adivinhação</h2>
-                    <div class="codeDetails">
-                        <p>Aluno: Carla Mendes</p>
+                        <p>Aluno: Luiz Flávio</p>
                         <div class="interactiveButtons">
                             <button class="download-button" onclick="downloadFile(this)">
                                 <i class="fas fa-file-download"></i> 
@@ -159,30 +73,43 @@ else:
                     </div>
                     <pre><code>
 import random
+import string
 
-def jogo_adivinhacao():
-    numero_secreto = random.randint(1, 100)
-    tentativas = 0
+def gerar_senha_forte(tamanho = random.randint(13,50)):
+    if tamanho < 12:
+        tamanho = 12
+        print('É necessário no mínimo 12 caracteres para gerar uma senha forte.')
+
+    letras_maiusculas = string.ascii_uppercase
+    letras_minusculas = string.ascii_lowercase
+    numeros = string.digits
+    caracteres_especiais = string.punctuation
+
+    senha = [
+        random.choice(letras_maiusculas),
+        random.choice(letras_minusculas),
+        random.choice(numeros),
+        random.choice(caracteres_especiais),
+    ]
+
+    todos_os_caracteres = letras_maiusculas + letras_minusculas + numeros + caracteres_especiais
+    senha += random.choices(todos_os_caracteres, k=tamanho - 4)
     
-    while True:
-        palpite = int(input("Adivinhe o número (1 a 100): "))
-        tentativas += 1
-        if palpite < numero_secreto:
-            print("Tente um número maior.")
-        elif palpite > numero_secreto:
-            print("Tente um número menor.")
-        else:
-            print(f"Parabéns! Você acertou em {tentativas} tentativas.")
-            break
+    random.shuffle(senha)
 
-jogo_adivinhacao()
+    return ''.join(senha)
+
+
+senha_gerada = gerar_senha_forte(13)
+print(f"Senha gerada: {senha_gerada}")
                     </code></pre>
                 </div>
 
+                <!-- Outras divs ajustadas para manter o mesmo layout -->
                 <div class="codeCard">
-                    <h2>Calculadora de Fatorial</h2>
+                    <h2>Criptografia De Mensagens</h2>
                     <div class="codeDetails">
-                        <p>Aluno: Lucas Santos</p>
+                        <p>Aluno: Enzo Hoshino</p>
                         <div class="interactiveButtons">
                             <button class="download-button" onclick="downloadFile(this)">
                                 <i class="fas fa-file-download"></i> 
@@ -193,22 +120,351 @@ jogo_adivinhacao()
                         </div>
                     </div>
                     <pre><code>
-def fatorial(n):
-    if n == 0 or n == 1:
-        return 1
+print("-----CRIPTOGRAFIA DE MENSAGENS-----\n- Criptografa sua mensagem, transformando cada caractere no número de sua determinada posição no alfabeto.")
+mensagem = input("\nDigite a mensagem que desejar criptografar (sem acentos, pontos ou números): ")
+mensagem_cripto = [0] * len(mensagem)
+
+i = 0
+
+while i < len(mensagem):
+   letra = mensagem[i]
+
+   if 'A' <= letra <= 'Z':
+       numero = ord(letra) - ord('A') + 1
+       mensagem_cripto[i] = numero
+
+   elif 'a' <= letra <= 'z':
+       numero = ord(letra) - ord('a') + 1
+       mensagem_cripto[i] = numero
+
+   if letra == ' ':
+       mensagem_cripto[i] = 0
+
+   else:
+       pass
+   i += 1
+
+print("Mensagem criptografada:", mensagem_cripto)
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Calculadora de Juros</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Harisson Oliveira</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+#Juros Simples e Juros Composto
+tipoJuros = str(input("Selecione o tipo de Juros: (SIMPLES) para Juros Simples, (COMPOSTO) para Juros Composto: ")).strip() .upper()
+capital = float(input("informe o capital para calculo: "))
+taxa = 10/100
+taxaDia = taxa/30
+
+if tipoJuros == "SIMPLES":
+    tempo = float(input("Informe os dias em atraso: "))
+    jurosSimples = capital * taxaDia * tempo
+    total = capital + jurosSimples
+    print(f"O juros Simples é igual à: {jurosSimples:.2f}")
+    print(f"O total a pagar é de: {total:.2f}")
+
+elif tipoJuros == "COMPOSTO":
+    tempo = float(input("Informe os anos em atraso: "))
+    montante = capital*(1+taxa)**tempo
+    jurosComposto = montante-capital 
+    print(f"O juros Composto é igual à: {jurosComposto:.2f}")
+    print(f"O total a pagar é de: {montante:.2f}")
+else:
+    print("Tipo de Juros inválido escolha entre 'Simples' e 'Composto'")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Calculadora</h2>
+                    <div class="codeDetails">
+                        <p>Aluna: Maria Valdete</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+import  tkinter as tk
+import math
+
+root = tk.Tk()
+root.title("Calculadora Completa")
+
+display_value, first_value, operator, memory = '', None, '', None
+
+update_display = lambda: (display.delete(0, tk.END), display.insert(0, display_value))
+
+def on_button_click(char):
+    global display_value, first_value, operator, memory
+    if char in '0123456789.':
+        display_value += char
+    elif char in '+-*/^':
+        first_value, operator, display_value = float(display_value), char, ''
+    elif char == '=' and operator:
+        second_value = float(display_value)
+        display_value = str(eval(f'{first_value}{operator}{second_value}')) if operator != '^' else str(first_value ** second_value)
+        operator = ''
+    elif char == 'C':
+        display_value, first_value, operator = '', None, ''
+    elif char == 'sin':
+        display_value = str(math.sin(math.radians(float(display_value))))
+    elif char == 'cos':
+        display_value = str(math.cos(math.radians(float(display_value))))
+    elif char == 'tan':
+        display_value = str(math.tan(math.radians(float(display_value))))
+    elif char == 'sqrt':
+        display_value = str(math.sqrt(float(display_value)))
+    elif char == 'M+':
+        memory = float(display_value)
+    elif char == 'MR':
+        display_value = str(memory)
+    update_display()
+
+display = tk.Entry(root, font=("Arial", 18), borderwidth=2, relief="solid", justify="right")
+display.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
+
+buttons = [
+    ('7', 1, 0, 1), ('8', 1, 1, 1), ('9', 1, 2, 1), ('+', 1, 3, 1),
+    ('4', 2, 0, 1), ('5', 2, 1, 1), ('6', 2, 2, 1), ('-', 2, 3, 1),
+    ('1', 3, 0, 1), ('2', 3, 1, 1), ('3', 3, 2, 1), ('*', 3, 3, 1),
+    ('0', 4, 0, 1), ('.', 4, 1, 1), ('=', 4, 2, 1), ('/', 4, 3, 1),
+    ('C', 5, 0, 4), ('sin', 6, 0, 1), ('cos', 6, 1, 1), ('tan', 6, 2, 1), ('sqrt', 6, 3, 1),
+    ('^', 7, 0, 1), ('M+', 7, 1, 1), ('MR', 7, 2, 1)
+]
+
+for (text, row, col, colspan) in buttons:
+    button = tk.Button(root, text=text, font=("Arial", 18), command=lambda t=text: on_button_click(t))
+    button.grid(row=row, column=col, columnspan=colspan, sticky="nsew", padx=5, pady=5)
+
+for i in range(8):
+    root.grid_rowconfigure(i, weight=1)
+    root.grid_columnconfigure(i, weight=1)
+
+root.mainloop()
+
+
+
+
+#**********************************************
+#python calculadora.py
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Orçamento Fotográfico online</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Lucas Lisboa</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+# Catalogando dados
+adicional1 = 0  # Adicional de 10% para período noite
+adicional2 = 0  # Adicional de 10% para fim de semana
+print("Seu orçamento fotográfico online")
+print("Insira os dados necessários para o seu orçamento!")
+
+# Entrada de dados
+qtd_fotos = int(input("Insira a quantidade de fotos para o seu evento: "))
+periodo = int(input("Insira o período do seu evento ('1' para Dia ou '2' para Noite): "))
+finaldesemana = input("Seu evento é no fim de semana? (s/n): ")
+
+# Calculando as possibilidades
+if qtd_fotos > 100:
+    valorporfoto = 2
+else:
+    valorporfoto = 3
+
+subtotal = qtd_fotos * valorporfoto
+
+# Calculando os adicionais
+if periodo == 2:  # Se o evento for à noite
+    adicional1 = subtotal * 0.1  # 10% adicional
+if finaldesemana == 's':  # Se o evento for no fim de semana
+    adicional2 = subtotal * 0.1  # 10% adicional
+
+# Calculando o valor final
+if periodo == 2 and finaldesemana == 's':  # Se for noite e fim de semana
+    valorfinal = subtotal + adicional1 + adicional2
+elif periodo == 2:  # Se for noite, mas não fim de semana
+    valorfinal = subtotal + adicional1
+elif finaldesemana == 's':  # Se for fim de semana, mas não noite
+    valorfinal = subtotal + adicional2
+else:  # Se for dia e não for fim de semana
+    valorfinal = subtotal
+
+# Mostrando o orçamento
+print(f"O seu orçamento ficou no valor de: {valorfinal} R$")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Verificador de Senhas</h2>
+                    <div class="codeDetails">
+                        <p>Aluna: Stefanie Borges</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+import re
+
+def verificar_senha_forte(senha):
+    if len(senha) < 8:
+        return "A senha deve ter pelo menos 8 caracteres."
+    if not re.search(r'[A-Z]', senha):
+        return "A senha deve conter pelo menos uma letra maiúscula."
+    if not re.search(r'[a-z]', senha):
+        return "A senha deve conter pelo menos uma letra minúscula."
+    if not re.search(r'[0-9]', senha):
+        return "A senha deve conter pelo menos um número."
+    if not re.search(r'[@#$%^&+=!]', senha):
+        return "A senha deve conter pelo menos um caractere especial (@, #, $, %, ^, &, +, =, !)."
+    return "Senha forte!"
+
+senha = input("Digite a sua senha: ")
+resultado = verificar_senha_forte(senha)
+print(resultado)
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Calculadora de IMC</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Carlos Eduardo</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+# Cálculo de IMC 
+peso = float(input("Digite seu peso em Kg: "))
+h = float(input("Digite sua altura em metros: "))
+imc = peso / (h ** 2)
+print("Seu IMC é:", imc, "Kg/m²")
+
+if imc < 18.5:
+    print("Você está abaixo do peso normal!")
+elif imc >= 18.5 and imc <= 24.9:
+    print("Você está no seu peso normal!")
+elif imc >= 25 and imc <= 29.9:
+    print("Você está com excesso de peso!")
+elif imc >= 30 and imc <= 34.9:
+    print("Você está em obesidade de classe 1")
+elif imc >= 35 and imc <= 39.9:
+    print("Você está em obesidade de classe 2")
+else:
+    print("Você está em obesidade de classe 3")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Calculadora Densidade Demografica</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Carlos Eduardo</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+#Densidade demográfica de uma área qualquer
+hab = int(input("Informe a quantidade absoluta de habitantes da região: "))
+area = float(input("Informe a área da região em km²: "))
+dens_demo = hab/area
+print ("A densidade demográfica da região é: ",dens_demo, "hab/km²")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Tabuada</h2>
+                    <div class="codeDetails">
+                        <p>Aluna: Jennifer Nascimento</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+# Tabuada de um número N
+# Permite que o usuário escolha uma operação para calcular a tabuada de um número até que decida encerrar o programa
+
+# Entrada de dados
+num = int(input("Digite um número inteiro: "))
+
+while True:
+    op = int(input("Qual operação você deseja realizar? Digite 0-(Para encerrar), 1-(Adição), 2-(Subtração), 3-(Multiplicação) ou 4-(Divisão): "))
+
+# Verifica se o usuário deseja encerrar o programa
+    if op == 0:
+        print(f"Programa encerrado!")
+        break
+
+#Verifica se o usuário digitou os números: 1, 2, 3 ou 4
+    elif op in [1, 2, 3, 4]:   
+        print(f"Tabuada do número: {num}.")  
+        for i in range(1, 11):
+            if op == 1: # adição
+                print(f"{num} + {i} = {num + i}")
+
+            elif op == 2:    #subtração      
+                print(f"{num} - {i} = {num- i}")   
+
+            elif op == 3:  # multiplicação
+                print(f"{num} X {i} = {num * i}")  
+                    
+            elif op == 4:  # divisão
+                print(f"{num} / {i} = {(num / i):.2f}")
     else:
-        return n * fatorial(n - 1)
+        print("Opção inválida! Tente novamente.")
 
-# Exemplo de uso
-numero = int(input("Digite um número para calcular o fatorial: "))
-print(f"O fatorial de {numero} é {fatorial(numero)}")
                     </code></pre>
                 </div>
 
                 <div class="codeCard">
-                    <h2>Contador de Palavras</h2>
+                    <h2>Pesquisa de Satisfação</h2>
                     <div class="codeDetails">
-                        <p>Aluno: Ana Clara</p>
+                        <p>Aluna: Letícia Costa</p>
                         <div class="interactiveButtons">
                             <button class="download-button" onclick="downloadFile(this)">
                                 <i class="fas fa-file-download"></i> 
@@ -219,20 +475,535 @@ print(f"O fatorial de {numero} é {fatorial(numero)}")
                         </div>
                     </div>
                     <pre><code>
-def contar_palavras(frase):
-    palavras = frase.split()
-    return len(palavras)
+totalp=0
+ms = 0
+s = 0
+ps = 0
+ind = 0
+ins = 0
+print("Para finalizar a pesquisa digite no local do nome: FIM ")
+name=str(input("Olá, tudo bem?💖 informe o seu nome por favor: "))
+while name!= "FIM":
+    pesquisa=str(input(f"Olá {name}!✨️ estamos fazendo uma pesquisa de satisfação relacionado ao nosso site!. Por favor digite o termo que está destacado para o que mais satisfazer a sua idéia sobre o nosso site.\n ● Muito satifeito(a)--[ MS ]\n ● Satisfeito(a)--[ S ]\n ● Pouco satisfeito(a)--[ PS ]\n ● Indiferente--[ IND ]\n ● Insatisfeito(a)--[ INS ]. \n\n ")).strip().upper()
+    if pesquisa == "MS":
+        ms+=1
+    elif pesquisa == "S":   
+        s+=1
+    elif pesquisa == "PS":   
+        ps+=1
+    elif pesquisa == "IND":   
+        ind+=1
+    elif pesquisa == "INS":
+        ins+=1
+    else:
+        print("\nPor favor, leve este questionário a sério...") 
+    totalp+=1      
+    print("Para finalizar a pesquisa digite no local do nome: FIM ")
+    name=str(input("\nOlá, tudo bem?💖 informe o seu nome por favor: "))
+print(f"O total de pessoas entrevistadas é: {totalp}\n")
+if totalp>0:
+      print(f">>O total de pessoas entrevistadas que ficaram muito satisfeitas com o site foi:{ms} sendo {(ms) /totalp*100:.1f}% do total de entrevistados!.\n")
+      print(f">>O total de pessoas entrevistadas que ficaram satisfeitas com o site foi:{s} sendo {(s) /totalp*100:.1f}% do total de entrevistados!.\n")
+      print(f">>O total de pessoas entrevistadas que ficaram pouco satisfeitas foi:{ps} sendo {(ps) /totalp*100:.1f}% do total de entrevistados!.\n")
+      print(f">>O total de pessoas entrevistadas que ficaram indiferentes com o site foi:{ind} sendo {(ind) /totalp*100:.1f}% do total de entrevistados!.\n")
+      print(f">>O total de pessoas entrevistadas que ficaram insatisfeitas com o site foi:{ins} sendo {(ins) /totalp*100:.1f}% do total de entrevistados!.")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Urna Eletrônica</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Ícaro Mac-Culloch</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+eleitores = int(input("insira a quantitade de eleitores alocados nesta sessão: ")) #Dentro de um ambiente eleitoral, este campo seria destinado ao mesário da sessão eleitoral. Essa quantidade serve para o laço While que contém o sistema de votação se repetir de acordo com a quantidade de elitores da sessão.
+votos = 0
+while votos < eleitores:
+    print("Eleições para Prefeito de Belém 2024")
+    print('''
+    Lista de candidatos à prefeitura de Belém:
+
+    15 - Igor Normando (MDB)            22 - Del. Éder Mauro (PL)               20 - Jefferson Lima (Podemos)
+
+    50 - Edmilson Rodrigues (PSOL)      10 - Thiago Araújo (Republicanos)       28 - Del. Eguchi (PRTB)
+
+    80 - Raquel Brício (UP)             30 - Ítalo Abati (NOVO)                 16 - Well (PSTU)  
+      
+    00 - NULO                           
+    ''')
+    #No caso de algum eleitor não ter comparecido à sessão, o mesário digitaria algum valor fora da tabela pra contar como "Não votou" no final do laço If/Else.
+    votos_igor = 0
+    votos_eder = 0
+    votos_jefferson = 0
+    votos_edmilson = 0
+    votos_thiago = 0
+    votos_eguchi = 0
+    votos_raquel = 0
+    votos_italo = 0
+    votos_well = 0
+    nulos = 0
+    sem_voto = 0
+    cod = int(input("Digite o número do candidato: "))
+    if cod == 15:
+        print("Candidato(a) selecionado: Igor Normando (MDB).")
+        print("Confirmar o voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto confirmado.")
+            votos+=1
+            votos_igor+=1
+        else:
+            print("Voto não confirmado.")
+    elif cod == 22:
+        print("Candidato(a) selecionado: Del. Éder Mauro (PL) ")
+        print("Confirmar o voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto confirmado.")
+            votos+=1
+            votos_eder+=1
+        else:
+            print("Voto não confirmado.")
+    elif cod == 20:
+        print("Candidato(a) selecionado: Jefferson Lima (Podemos).")
+        print("Confirmar o voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto confirmado.")
+            votos+=1
+            votos_jefferson+=1
+        else:
+            print("Voto não confirmado.")
+    elif cod == 50:
+        print("Candidato(a) selecionado: Edmilson Rodrigues (PSOL).")
+        print("Confirmar o voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto confirmado.")
+            votos+=1
+            votos_edmilson+=1
+        else:
+            print("Voto não confirmado.")
+    elif cod == 10:
+        print("Candidato(a) selecionado: Thiago Araújo (Republicanos).")
+        print("Confirmar o voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto confirmado.")
+            votos+=1
+            votos_thiago+=1
+        else:
+            print("Voto não confirmado.")
+    elif cod == 28:
+        print("Candidato(a) selecionado: Del. Eguchi (PRTB).")
+        print("Confirmar o voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto confirmado.")
+            votos+=1
+            votos_eguchi+=1
+        else:
+            print("Voto não confirmado.")
+    elif cod == 80:
+        print("Candidato(a) selecionado: Raquel Brício (UP).")
+        print("Confirmar o voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto confirmado.")
+            votos+=1
+            votos_raquel+=1
+        else:
+            print("Voto não confirmado.")
+    elif cod == 30:
+        print("Candidato(a) selecionado: Ítalo Abati (NOVO).")
+        print("Confirmar o voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto confirmado.")
+            votos+=1
+            votos_italo+=1
+        else:
+            print("Voto não confirmado.")
+    elif cod == 16:
+        print("Candidato(a) selecionado: Well (PSTU).")
+        print("Confirmar o voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto confirmado.")
+            votos+=1
+            votos_well+=1
+        else:
+            print("Voto não confirmado.")
+    elif cod == 00:
+        print("Deseja anular ser voto?")
+        confirm = int(input("SIM(1) ou NÃO(2)? "))
+        if confirm == 1:
+            print("Voto anulado.")
+            votos+=1
+            nulos+=1
+        else:
+            print("Voto não anulado.")
+    else:
+        print("O eleitor não compareceu à sessão.")
+        sem_voto+=1
+        votos+=1
+votos_totais = votos-sem_voto
+print(f'''
+Votos totais da sessão:
+{votos_totais}
+''')
+print(f'''
+Eleitores que não compareceram à sessão:
+{sem_voto}
+{(sem_voto/eleitores)*100}%
+''')
+print(f'''
+Votos nulos:
+{nulos}
+{(nulos/votos_totais)*100}%
+''')
+print(f'''
+Igor Normando (MDB)
+{votos_igor} votos
+{(votos_igor/votos_totais)*100}% dos votos
+''')
+print(f'''
+Del. Éder Mauro (PL)
+{votos_eder} votos
+{(votos_eder/votos_totais)*100}% dos votos
+''')
+print(f'''
+Jefferson Lima (Podemos)
+{votos_jefferson} votos
+{(votos_jefferson/votos_totais)*100}% dos votos
+''')
+print(f'''
+Edmilson Rodrigues (PSOL)
+{votos_edmilson} votos
+{(votos_edmilson/votos_totais)*100}% dos votos
+''')
+print(f'''
+Thiago Araújo (Republicanos)
+{votos_thiago} votos
+{(votos_thiago/votos_totais)*100}% dos votos
+''')
+print(f'''
+Del. Eguchi (PRTB)
+{votos_eguchi} votos
+{(votos_eguchi/votos_totais)*100}% dos votos
+''')
+print(f'''
+Raquel Brício (UP)
+{votos_raquel} votos
+{(votos_raquel/votos_totais)*100}% dos votos
+''')
+print(f'''
+Ítalo Abati (NOVO)
+{votos_italo} votos
+{(votos_italo/votos_totais)*100}% dos votos
+''')   
+print(f'''
+Well (PSTU)
+{votos_well} votos
+{(votos_well/votos_totais)*100}% dos votos
+''')
+                    </code></pre>
+                </div>
+                
+                <div class="codeCard">
+                    <h2>Calculadora de Volume Corrente</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Cauê Teixeira</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+genero = input('Insira o gênero do paciente: [M = Masculino/F = Feminino] ')
+altura = float(input('Insira a altura do paciente em CM: '))
+
+if genero == 'M':
+    peso_predito = 50 + 0.91 * (altura-152.4)
+
+elif genero == 'F':
+    peso_predito = 45.5 + 0.91 * (altura-152.4)
+
+else:
+    print('Dados invalidos de gênero, verifique a caixa alta')
+    peso_predito= None
+
+volume_corrente_min = peso_predito * 4
+volume_corrente_alvo = peso_predito * 6
+volume_corrente_max = peso_predito * 8
+
+print('O volume Corrente MÍNIMO do(a) paciente é de: ', volume_corrente_alvo)
+print('O volume Corrente ALVO do(a) paciente é de: ', volume_corrente_alvo)
+print('O volume Corrente MÁXIMO do(a) paciente é de: ', volume_corrente_max)
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Calculadora de Formas Geométricas</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Ícaro Farias</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+import math
+#Nome do programna
+print('CALCULADORA DE ÁREA FIGURAS PLANAS\n')
+#Legenda para inserir a forma geométrica desejada
+print('   Círculo=C\n   '
+      'Triângulo qualquer=TQ\n   '
+      'Triângulo equilátero=TEQ\n   '
+      'Quadrilátero=Q\n   '
+      'Losango=L'
+      'Trapézio=T'
+      'Polígono regular=P\n')
+
+fig = str(input('Informe o formato da figura geométrica: ').strip().upper())
+#Cálculo do círculo
+if fig == 'C':
+    pi = 3.1415
+    raio = float(input('Informe o valor do raio: '))
+    area_c = pi * (raio ** 2)
+    print(f'Área:{area_c:.2f}')
+#Cálculo do triângulo
+elif fig == 'TQ':
+    base_t = float(input('Informe o valor da base: '))
+    altura_t = float(input('Informe o valor da altura'))
+    area_t = (base_t * altura_t) / 2
+    print(f'Área:{area_t:.2f}')
+#Cálculo do triângulo equilátero
+elif fig == 'TEQ':
+    lado_t = float(input('Informe o valor do lado: '))
+    area_t = ((lado_t**2) * math.sqrt(3)) / 4
+    print(f'Área:{area_t:.2f}')
+#Cálculo do quadrilátero
+elif fig == 'Q':
+    base_q = float(input('Informe o valor da base: '))
+    altura_q = float(input('Informe o valor da altura: '))
+    area_q = base_q * altura_q
+    print(f'Área:{area_q:.2f}')
+#Cálculo do trapézio
+elif fig == 'T':
+    baseM_t =  float(input('Informe o valor da base maior: '))
+    basem_t = float(input('Informe o valor da base menor: '))
+    altura_t = float(input('Informe o valor da altura: '))
+    area_t = (basem_t + baseM_t) * altura_t /2
+#Cálculo do losango
+elif fig == 'L':
+    diagonalM_l =  float(input('Informe o valor da diagonal maior: '))
+    diagonalm_l = float(input('Informe o valor da diagonal menor: '))
+    area_t = (diagonalm_l * diagonalM_l) / 2
+#Cálculo do poligono regular
+elif fig == 'P':
+    n_lados_p = float(input('Informe o número de lados: '))
+    c_lado_p = float(input('Informe o valor do comprimento do lado: '))
+    apotema_p = float(input('Informe o valor do apótema: '))
+    area_p = (n_lados_p * c_lado_p) / 2 * apotema_p
+    print(f'Área:{area_p:.2f}')
+
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Média Ponderada</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Pedro Cruz</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+quantidade_notas_existentes = int(input("Quantas notas você já possui? (mínimo 1): "))
+
+if quantidade_notas_existentes < 1:
+    print("Por favor, insira um número maior ou igual a 1.")
+else:
+    quantidade_total_notas = int(input("De quantas notas é composta a média final a ser alcançada? (mínimo 2): "))
+
+    if quantidade_total_notas <= quantidade_notas_existentes:
+        print("A quantidade total de notas deve ser maior que a quantidade de notas que você já possui.")
+    else:
+        entrada_notas = input(f"Digite as {quantidade_notas_existentes} notas separadas por espaço: ")
+        entrada_pesos = input(f"Digite os {quantidade_total_notas} pesos correspondentes separados por espaço: ")
+
+        notas = list(map(float, entrada_notas.split()))
+        pesos = list(map(float, entrada_pesos.split()))
+
+        if len(notas) != quantidade_notas_existentes or len(pesos) != quantidade_total_notas:
+            print("Por favor, insira a quantidade correta de notas e pesos.")
+        else:
+            media_desejada = float(input("Digite a média final a ser alcançada para ser aprovado: "))
+
+            soma_pesos = 0
+            for peso in pesos:
+                soma_pesos += peso
+
+            soma_ponderada_desejada = media_desejada * soma_pesos
+
+            soma_ponderada_atual = 0
+            for i in range(quantidade_notas_existentes):
+                soma_ponderada_atual += notas[i] * pesos[i]
+
+            soma_novas_notas = soma_ponderada_desejada - soma_ponderada_atual
+
+            pesos_novas = pesos[quantidade_notas_existentes:]
+
+            for i in range(len(pesos_novas)):
+                peso_nova = pesos_novas[i]
+                nota_nova = soma_novas_notas * (peso_nova / sum(pesos_novas)) / peso_nova
+                print(f"Para atingir a média final de {media_desejada} você precisa que a nota da {quantidade_notas_existentes + i + 1}ª avaliação seja: {nota_nova:.2f}")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Analisador de Idades</h2>
+                    <div class="codeDetails">
+                        <p>Aluna: Ana Beatriz</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+# Define o número de pessoas
+numero_de_pessoas = 5
+idades = []  # Lista para armazenar as idades
+
+# Loop para coletar idades
+for i in range(numero_de_pessoas):
+    while True:
+            idade = int(input(f"Digite a idade da pessoa {i + 1}: "))
+            
+            # Validação para garantir que é um número inteiro positivo
+            if idade >0:
+                idades.append(idade)
+                break
+            else:
+                print("Idade inválida. A idade deve ser um número inteiro positivo.")
+
+# Cálculo de estatísticas básicas 
+total_idades = 0
+maior_idade = idades[0]
+menor_idade = idades[0]
+
+# Loop para calcular a soma, maior e menor idade
+for idade in idades:
+    total_idades += idade
+    
+    # Verifica maior idade
+    if idade > maior_idade:
+        maior_idade = idade
         
-# Exemplo de uso
-frase = input("Digite uma frase: ")
-print(f"Número de palavras: {contar_palavras(frase)}")
+    # Verifica menor idade
+    if idade < menor_idade:
+        menor_idade = idade
+
+# Cálculo da média
+idade_media = total_idades / numero_de_pessoas
+
+# Exibição dos resultados
+print("\nResumo das idades:")
+print(f"Idades coletadas: {idades}")
+print(f"Idade média: {idade_media:.0f} anos")
+print(f"Idade mais nova: {menor_idade} anos")
+print(f"Idade mais velha: {maior_idade} anos")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Contador de Letras</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Richardson Willan</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+frase = input("Digite uma palavra ou frase: ")
+
+vogais = "aeiouAEIOUãõÃÕáéíóúÁÉÍÓÚ"
+vogais_count = 0
+consoantes_count = 0
+
+vogais_encontradas = []
+consoantes_encontradas = []
+
+for letra in frase:
+    if letra in vogais:
+        vogais_count += 1
+        vogais_encontradas.append(letra)  # .append tá adicionando a vogal na lista pra aparecer no print no final
+    elif letra != ' ':  #
+        consoantes_count += 1
+        consoantes_encontradas.append(letra)
+
+print(f"Vogais: {vogais_count} {vogais_encontradas}")
+print(f"Consoantes: {consoantes_count} {consoantes_encontradas}")
+                    </code></pre>
+                </div>
+
+                <div class="codeCard">
+                    <h2>Soma Rápida</h2>
+                    <div class="codeDetails">
+                        <p>Aluno: Gustavo Modesto</p>
+                        <div class="interactiveButtons">
+                            <button class="download-button" onclick="downloadFile(this)">
+                                <i class="fas fa-file-download"></i> 
+                            </button>
+                            <button class="copyButton" onclick="copyText(this)">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <pre><code>
+numero = int(input("Digite um número: "))
+soma = 0
+for i in range(1, numero + 1):
+    soma += i
+print("A soma de 1 até", numero, "é:", soma)
                     </code></pre>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer>
+    <footer id="credits">
         <p>Website desenvolvido por: 
             <strong> Luiz Flávio De Oliveira Pinto 
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luizflavio1452@gmail.com" 
@@ -245,7 +1016,10 @@ print(f"Número de palavras: {contar_palavras(frase)}")
             </strong>
         </p>
         <p>Professora: <strong> Andrea Marques</strong></p>
-        <p>Alunos: Flávio Pinto, João Silva, Maria Oliveira, Pedro Souza, Carla Mendes, Lucas Santos, Ana Clara</p>
+        <p>Alunos: : Ana Beatriz, Carlos Eduardo, Cauê Texeira, Enzo Hoshino, 
+Gustavo Modesto, Harisson oliveira, Icaro Farias, Icaro Mac-culloch,
+Jennifer nascimento, Letícia Costa, Lucas Lisboa, Luiz Flávio, Maria
+Valdete, Pedro Cruz, Richardsons Willian, Stefanie Borges.</p>
 
     </footer>
 

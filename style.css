@@ -115,7 +115,7 @@ header {
 }
 
 .headerNavUl li:hover, li.active {
-    color: #00563f; /* Cor do texto no hover */
+    color: #00563f; 
     cursor: pointer;
     background-color: aliceblue;
     
@@ -220,7 +220,7 @@ main{
 .codeCard h2 {
     color: #E6E6E6;
     text-align: center;
-    font-size: calc(1.5vw + 1.5vh);
+    font-size: calc(1.3vw + 1.3vh);
 }
 
 .codeCard .codeDetails {
@@ -253,6 +253,11 @@ main{
 .codeCard .codeDetails .interactiveButtons button:hover{
     color: #E6E6E6;
     font-size: 20px;
+}
+
+.codeCard pre {
+    white-space: pre-wrap; 
+    word-wrap: break-word;
 }
 
 .codeCard code {
@@ -362,6 +367,10 @@ footer p strong .fab.fa-github:hover {
     .codeCard code {
         width: 80vw
     }    
+
+    footer p strong {
+        font-size: 16px;
+    }
 
 }
 
